@@ -1,0 +1,19 @@
+import os
+with open("ip.txt") as file:
+    lista_ips = file.read()
+    lista_ips = lista_ips.splitlines()
+    
+def testar_ip(ip):
+    resposta = os.system("ping -n 1 " + ip)
+    if resposta == 0:
+        print(f"O IP {ip} está acessível.")
+    else:
+        print(f"O IP {ip} não está acessível.")
+    print(resposta)
+
+# Lista de IPs para teste
+#lista_ips = ["192.168.0.1", "192.168.0.2", "192.168.0.3"]
+
+# Testar cada IP na lista
+for ip in lista_ips:
+    testar_ip(ip)
